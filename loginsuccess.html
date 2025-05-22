@@ -1,0 +1,31 @@
+<!--로그인 성공화면: 일시적으로 뜨는 녹색 성공화면이니 건들지 않아도 됨-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>로그인 성공</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #e0f7e9;
+      font-family: sans-serif;
+    }
+    .message {
+      font-size: 24px;
+      color: #2ecc71;
+    }
+  </style>
+  <script>
+    // 3초 후에 홈으로 이동
+    setTimeout(function () {
+      window.location.href = "/taskmain"; // 홈 페이지 주소
+    }, 3000); // 3000ms = 3초
+  </script>
+</head>
+<body>
+  <div class="message">로그인 성공! 홈으로 이동 중...</div>
+</body>
+</html>

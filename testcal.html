@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>투두리스트</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Apple SD Gothic Neo', Arial, sans-serif;
+      background-color: #f9fafb;
+      color: #333;
+    }
+    .sidebar {
+      position: fixed;
+      top: 0; left: 0;
+      width: 230px;
+      height: 100vh;
+      background-color: #fff;
+      border-right: 1px solid #e5e7eb;
+      padding: 20px;
+    }
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+    }
+    .sidebar ul {
+      list-style: none;
+      padding: 0;
+    }
+    .sidebar li {
+      margin: 10px 0;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+    }
+    .main {
+      margin-left: 230px;
+      padding: 30px;
+    }
+    header h1 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+    .todo-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+    }
+    .todo-header h2 {
+      margin: 0;
+      font-size: 20px;
+    }
+    .todo-header span {
+      font-size: 14px;
+      color: #6b7280;
+    }
+    .task-columns {
+      display: flex;
+      gap: 16px;
+      margin-top: 20px;
+    }
+    .task-column {
+      background: white;
+      border-radius: 12px;
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      flex: 1;
+    }
+    .task-column h3 {
+      margin-top: 0;
+      font-size: 16px;
+      display: flex;
+      justify-content: space-between;
+      color: #111827;
+    }
+    .task-column ul {
+      list-style: none;
+      padding: 0;
+      margin: 10px 0;
+    }
+    .task-column li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 8px;
+    }
+    .task-column input[type="checkbox"] {
+      margin-right: 10px;
+    }
+    .add-task {
+      color: #9ca3af;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .calendar-section {
+      display: flex;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    .calendar-box, .history-box {
+      background: white;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+      padding: 20px;
+      flex: 1;
+    }
+    .calendar-box table {
+      width: 100%;
+      text-align: center;
+      border-collapse: collapse;
+    }
+    .calendar-box th, .calendar-box td {
+      padding: 10px;
+      color: #374151;
+    }
+    .calendar-box .today {
+      border: 1px solid #34d399;
+      border-radius: 50%;
+      color: #10b981;
+    }
+    .calendar-box .selected {
+      background: #10b981;
+      border-radius: 50%;
+      color: white;
+    }
+    .history-box h4 {
+      margin: 0 0 10px 0;
+      font-size: 16px;
+    }
+    .history-box section {
+      margin-bottom: 10px;
+    }
+    .history-box section span {
+      display: inline-block;
+      font-weight: bold;
+      margin-bottom: 4px;
+    }
+    .history-box li {
+      margin-left: 10px;
+      font-size: 14px;
+    }
+  </style>
+</head>
+<body>
+  <aside class="sidebar">
+    <img src="#" alt="logo" style="height: 30px; margin-bottom: 30px;">
+    <ul>
+      <li style="color:#10b981">♡ 마음</li>
+      <li>📘 공부</li>
+      <li>🏃 운동</li>
+      <li>📚 독서</li>
+    </ul>
+    <div style="margin-top: 30px; font-size: 14px; color: #6b7280; cursor: pointer;">+ 카테고리 추가</div>
+  </aside>
+  <main class="main">
+    <header>
+      <h1>투두리스트</h1>
+    </header>
+    <section class="todo-header">
+      <h2>5/21 오늘의 todo</h2>
+      <span>13개의 항목</span>
+    </section>
+    <div class="task-columns">
+      <div class="task-column">
+        <h3>🏃 운동 <span>3개 항목</span></h3>
+        <ul>
+          <li><input type="checkbox" checked> 아침 조깅 30분</li>
+          <li><input type="checkbox"> 스트레칭 10분</li>
+          <li><input type="checkbox"> 근력 운동 20분</li>
+        </ul>
+        <div class="add-task">+ 추가하기</div>
+      </div>
+      <div class="task-column">
+        <h3>♡ 마음 <span>2개 항목</span></h3>
+        <ul>
+          <li><input type="checkbox" checked> 명상 10분 하기</li>
+          <li><input type="checkbox"> 감사일기 작성하기</li>
+        </ul>
+        <div class="add-task">+ 추가하기</div>
+      </div>
+      <div class="task-column">
+        <h3>📘 공부 <span>5개 항목</span></h3>
+        <ul>
+          <li><input type="checkbox" checked> 프로그래밍 강의 듣기</li>
+          <li><input type="checkbox"> 영어 단어 30개 외우기</li>
+          <li><input type="checkbox"> 알고리즘 문제 풀기</li>
+          <li><input type="checkbox"> 포트폴리오 계획 세우기</li>
+          <li><input type="checkbox"> CS 공부하기</li>
+        </ul>
+        <div class="add-task">+ 추가하기</div>
+      </div>
+      <div class="task-column">
+        <h3>📚 독서 <span>3개 항목</span></h3>
+        <ul>
+          <li><input type="checkbox" checked> 아침 독서 30분</li>
+          <li><input type="checkbox"> 독서 노트 정리하기</li>
+          <li><input type="checkbox"> 새로운 책 선정하기</li>
+        </ul>
+        <div class="add-task">+ 추가하기</div>
+      </div>
+    </div>
+    <div class="calendar-section">
+      <div class="calendar-box">
+        <h3>5/23</h3>
+        <table>
+          <tr><th>SUN</th><th>MON</th><th>TUE</th><th>WED</th><th>THU</th><th>FRI</th><th>SAT</th></tr>
+          <tr><td>27</td><td>28</td><td>29</td><td>30</td><td>1</td><td>2</td><td>3</td></tr>
+          <tr><td>4</td><td>5</td><td>6</td><td>7</td><td>8</td><td>9</td><td>10</td></tr>
+          <tr><td>11</td><td>12</td><td>13</td><td>14</td><td>15</td><td>16</td><td>17</td></tr>
+          <tr><td>18</td><td>19</td><td>20</td><td class="today">21</td><td>22</td><td class="selected">23</td><td>24</td></tr>
+          <tr><td>25</td><td>26</td><td>27</td><td>28</td><td>29</td><td>30</td><td>31</td></tr>
+        </table>
+      </div>
+      <div class="history-box">
+        <h4>5/20</h4>
+        <section><span style="color: #10b981">마음</span>
+          <ul><li>명상 10분 하기</li><li>감사일기 작성하기</li></ul>
+        </section>
+        <section><span style="color: #3b82f6">공부</span>
+          <ul><li>프로그래밍 강의 듣기</li><li>영어 단어 30개 외우기</li></ul>
+        </section>
+        <section><span style="color: #f97316">운동</span>
+          <ul><li>아침 조깅 30분</li><li>스트레칭 10분</li></ul>
+        </section>
+      </div>
+    </div>
+  </main>
+</body>
+</html>

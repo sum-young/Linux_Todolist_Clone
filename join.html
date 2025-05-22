@@ -1,0 +1,29 @@
+<!--회원가입 페이지-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>로그인화면</title>
+  <link rel="stylesheet" href="style.css">
+
+  <style>
+    body { background-color: #ffffff; display: flex; justify-content: center; align-items: center; height: 100vh; }
+    .container { display: flex; align-items: center; gap: 20px; }
+    .check-icon { width: 30px; height: 30px; background-color: #2ecc71; color: white; font-size: 18px; border-radius: 6px; display: flex; justify-content: center; align-items: center; }
+    .form { display: flex; flex-direction: column; gap: 10px; }
+    input { background-color: #eaf7ea; border: none; padding: 8px; border-radius: 4px; }
+    label { font-size: 14px; }
+    .join {margin-left: 5px; align-items: left}
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="check-icon">✔</div>
+    <form method="POST" action="/join">
+    <label>ID<br><input type="text" name="id" required /></label><br>
+    <label>PW<br><input type="password" name="pw" required /></label><br>
+    <button class = "join">회원가입</button>
+    </form>
+  </div>
+</body>
+</html>

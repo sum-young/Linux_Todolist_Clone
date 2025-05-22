@@ -1,0 +1,31 @@
+<!--로그인 실패화면: 일시적으로 지나가는 페이지이고, 잠깐 지난가고 다시 로그인화면으로 돌아옴-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>로그인 실패</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background-color: #e0f7e9;
+      font-family: sans-serif;
+    }
+    .message {
+      font-size: 24px;
+      color: #2ecc71;
+    }
+  </style>
+  <script>
+    // 3초 후에 홈으로 이동
+    setTimeout(function () {
+      window.location.href = "/login"; // 홈 페이지 주소
+    }, 3000); // 3000ms = 3초
+  </script>
+</head>
+<body>
+  <div class="message">아이디/비밀번호를 잘못 입력하였습니다.</div>
+</body>
+</html>
